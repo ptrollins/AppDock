@@ -1,0 +1,44 @@
+<ion-view view-title="{{ 'apps' | translate }}">
+
+  <ion-content scroll="false">
+
+    <section class="home-container">
+      <div class = "row header">
+
+        <div class = "col text-right">
+          Top 8 Apps for {{ currmonth | translate }}
+        </div>
+        <div class = "col"></div>
+        <div class = "col"></div>
+
+      </div>
+      <div class="row icon-row">
+        <div ng-repeat="app in apps.slice(0, 3)" class="col-20 col-offset-10 text-center">
+          <a href="#/tab/apps/{{app.id}}">
+          <img ng-src="{{ app.logo }}" width="100%"></a>{{app.name}}
+        </div>
+      </div>
+
+      <div class="row icon-row">
+        <div ng-repeat="app in apps.slice(4, 7)" class="col-20 col-offset-10 text-center">
+          <a href="#/tab/apps/{{app.id}}">
+            <img ng-src="{{ app.logo }}" width="100%"></a>{{app.name}}
+        </div>
+      </div>
+
+
+    </section>
+    <!--ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
+        <img ng-src="{{chat.face}}">
+        <h2>{{chat.name}}</h2>
+        <p>{{chat.lastText}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list-->
+  </ion-content>
+</ion-view>

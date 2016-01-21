@@ -1,0 +1,34 @@
+<ion-view view-title="AppDock">
+  <ion-content>
+    <div>
+      <a href="http://www.accuweather.com/en/sn/dakar/297442/weather-forecast/297442" class="aw-widget-legal">
+        <!--
+        By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at http://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at http://www.accuweather.com/en/privacy.
+        -->
+      </a><div id="awcc1453258913380" class="aw-widget-current"  data-locationkey="" data-unit="c" data-language="fr"
+               data-useip="true" data-uid="awcc1453258913380"></div>
+    </div>
+
+    <div class="text-center">
+      <video controls="controls" preload="metadata" webkit-playsinline="webkit-playsinline" class="videoPlayer">
+        <source src="http://player.vimeo.com/external/85569724.sd.mp4?s=43df5df0d733011263687d20a47557e4" type="video/mp4"/>
+      </video><script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
+    </div>
+
+    <div class="row">
+      <div class="col-20 col-offset-10">
+        <button class="button-stable button-clear" ng-click="changeAndGo('en')">
+          <img src="../img/flag_en.svg" width="100%">English</button>
+      </div>
+      <div class="col-20 col-offset-10">
+        <button class="button-stable button-clear" ng-click="changeAndGo('wo')">
+          <img src="../img/flag_wo.svg" width="100%">Wolof</button>
+      </div>
+      <div class="col-20 col-offset-10">
+        <button class="button-stable button-clear" ng-click="changeAndGo('fr')">
+          <img src="../img/flag_fr.svg" width="100%">Français</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+

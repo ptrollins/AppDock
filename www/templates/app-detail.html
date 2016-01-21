@@ -1,0 +1,25 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="AppDock - {{app.name}}">
+  <ion-nav-bar class="bar-calm">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content class="padding">
+    <div class="row">
+      <div class="col-25">
+        <div>
+          <img ng-src="{{ app.logo }}" width="100%">
+          <!--img ng-src="{{app.logo}}" style="width: 64px; height: 64px"-->
+        </div>
+        <div><h2 class="text-center">{{app.name}}</h2></div>
+        <p>{{app.description}}</p>
+        <button class="button icon-left ion-android-download button-block button-calm">{{'download' | translate}}</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
