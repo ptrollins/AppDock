@@ -1,5 +1,5 @@
 {
-  "language_type": "en",
+  "language_type": "EN",
   "Back":"Back",
   "home":"Home",
 
@@ -7,6 +7,9 @@
 
   "apps": "Apps",
   "download": "DOWNLOAD",
+  "description": "Description",
+  "comments": "Comments",
+  "ratethisapp": "Rate This App",
 
   "howto": "How To",
 

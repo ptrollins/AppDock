@@ -35,17 +35,12 @@
     <script src="lib/angular-translate/angular-translate.min.js"></script>
     <script src="lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
 
-    <script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
-
   </head>
   <body ng-app="AppDock">
 
   <ion-nav-bar class="bar-calm">
-    <ion-nav-buttons side="right">
-      <button class="button">
-       <a href="#/home"> {{'home' | translate}}</a>
-      </button>
-    </ion-nav-buttons>
+    <ion-nav-back-button>
+    </ion-nav-back-button>
   </ion-nav-bar>
 
   <ion-nav-view></ion-nav-view>

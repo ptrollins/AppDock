@@ -1,5 +1,5 @@
 {
-  "language_type": "fr",
+  "language_type": "FR",
   "Back":"Retourner",
   "home":"Accueil",
 
@@ -7,6 +7,9 @@
 
   "apps": "Apps",
   "download":"TÉLÉCHARGER",
+  "description": "Description",
+  "comments": "Commentaire",
+  "ratethisapp": "Évaluer L'application",
 
   "howto": "Comment",
 

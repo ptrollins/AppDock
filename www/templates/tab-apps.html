@@ -1,5 +1,9 @@
 <ion-view view-title="{{ 'apps' | translate }}">
-
+  <ion-nav-buttons side="right">
+    <button class="button" ng-click="util.linkTo('home')" >
+      {{'home' | translate}}
+    </button>
+  </ion-nav-buttons>
   <ion-content scroll="false">
 
     <section class="home-container">
@@ -13,14 +17,15 @@
 
       </div>
       <div class="row icon-row">
-        <div ng-repeat="app in apps.slice(0, 3)" class="col-20 col-offset-10 text-center">
+        <div ng-repeat="app in apps.slice(0, 4)" class="col-25 text-center">
           <a href="#/tab/apps/{{app.id}}">
-          <img ng-src="{{ app.logo }}" width="100%"></a>{{app.name}}
+          <img ng-src="{{ app.logo }}" width="100%"></a>
+          <p>{{app.name}}</p>
         </div>
       </div>
 
       <div class="row icon-row">
-        <div ng-repeat="app in apps.slice(4, 7)" class="col-20 col-offset-10 text-center">
+        <div ng-repeat="app in apps.slice(4, 8)" class="col-25 text-center">
           <a href="#/tab/apps/{{app.id}}">
             <img ng-src="{{ app.logo }}" width="100%"></a>{{app.name}}
         </div>

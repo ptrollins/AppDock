@@ -1,6 +1,7 @@
-angular.module('AppDock.controllers', [])
+angular.module('AppDock')
 
-  .controller('DashCtrl', function($scope) {})
+  .controller('DashCtrl', function($scope) {
+  })
 
   .controller('AppsCtrl', function($scope, $filter, Apps) {
     // With the new view caching in Ionic, Controllers are only called
@@ -17,6 +18,9 @@ angular.module('AppDock.controllers', [])
     $scope.remove = function(app) {
       Apps.remove(app);
     };
+
+    $scope.util = Apps;
+
   })
 
   .controller('AppDetailCtrl', function($scope, $stateParams, Apps) {

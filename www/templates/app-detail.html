@@ -17,9 +17,31 @@
           <!--img ng-src="{{app.logo}}" style="width: 64px; height: 64px"-->
         </div>
         <div><h2 class="text-center">{{app.name}}</h2></div>
-        <p>{{app.description}}</p>
-        <button class="button icon-left ion-android-download button-block button-calm">{{'download' | translate}}</button>
+        <div class="text-center"><button class="button icon-left ion-android-download button-calm">{{'download' | translate}}</button></div>
+      </div>
+      <div class="col-75">
+
+          <video controls="controls" preload="metadata" webkit-playsinline="webkit-playsinline" class="videoPlayer" width="100%">
+            <source src="http://player.vimeo.com/external/85569724.sd.mp4?s=43df5df0d733011263687d20a47557e4" type="video/mp4"/>
+          </video>
+
+        <!--div class="video-container">
+          <iframe src="http://www.youtube.com/embed/KBKXu3Kg4yg?rel=0" frameborder="0" allowfullscreen></iframe>
+        </div-->
       </div>
     </div>
+    <div class="row">
+      <h2>{{'description' | translate}}</h2>
+    </div>
+    <div class="row">
+      <p>{{app.description}}</p>
+    </div>
+    <div class="row">
+      <h2>{{'comments' | translate}}</h2>
+    </div>
+    <div class="row">
+      <p>{{app.comments}}</p>
+    </div>
+    <button class="button icon-left ion-star button-calm">{{'ratethisapp' | translate}}</button>
   </ion-content>
 </ion-view>

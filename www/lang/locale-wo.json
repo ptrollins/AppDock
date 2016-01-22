@@ -1,5 +1,5 @@
 {
-  "language_type": "wo",
+  "language_type": "WO",
   "Back":"Retourner-wo",
   "home":"Home-wo",
 
@@ -7,6 +7,9 @@
 
   "apps": "Apps-WO",
   "download":"TÉLÉCHARGER-wo",
+  "description": "Description-wo",
+  "comments": "Commentaire-wo",
+  "ratethisapp": "Rate This App-wo",
 
   "howto": "How To-wo",
 

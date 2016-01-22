@@ -7,8 +7,8 @@
 // 'AppDock.controllers' is found in controllers.js
 angular.module('AppDock', [
   'ionic',
-  'AppDock.controllers',
-  'AppDock.services',
+  //'AppDock.controllers',
+  //'AppDock.services',
   'pascalprecht.translate',
   'ngIdle'
   // 'KeepaliveProvider'
