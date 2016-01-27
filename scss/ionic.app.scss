@@ -52,3 +52,16 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   width: 100%;
   height: 100%;
 }
+ul.rating li {
+  display: inline;
+  border: 0px;
+  background: none;
+  padding: 5px 10px;
+}
+ul.rating li i {
+  font-size: 30px;
+
+.item.active {
+  background-color: #11c1f3 !important;
+}
+}

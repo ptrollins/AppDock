@@ -9762,3 +9762,14 @@ a.button {
   left: 0;
   width: 100%;
   height: 100%; }
+
+ul.rating li {
+  display: inline;
+  border: 0px;
+  background: none;
+  padding: 5px 10px; }
+
+ul.rating li i {
+  font-size: 30px; }
+  ul.rating li i .item.active {
+    background-color: #11c1f3 !important; }

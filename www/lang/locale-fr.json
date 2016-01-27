@@ -1,7 +1,9 @@
 {
   "language_type": "FR",
-  "Back":"Retourner",
+  "back":"Retourner",
   "home":"Accueil",
+  "submit": "Envoyer",
+  "cancel": "Annuler",
 
   "dashboard": "Tableau de Bord",
 
@@ -10,12 +12,24 @@
   "description": "Description",
   "comments": "Commentaire",
   "ratethisapp": "Évaluer L'application",
+  "rate": "Évaluer",
+  "telephone": "Téléphone",
+
+  "devprofile":"Profil de Développeur",
+  "developers":"Développeur",
 
   "howto": "Comment",
+  "howtosearch": "How to Search for Apps",
+  "howtoinstall": "How to Install an App",
+  "howtodelete": "How to Delete an App",
 
   "social": "Social",
+  
+  "feedback": "Réaction",
 
   "about": "À Propos de/Réaction",
+
+  "donate": "Donate",
 
   "January":"Janvier",
   "February":"Février",

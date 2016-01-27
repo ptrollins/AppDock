@@ -1,0 +1,33 @@
+<ion-view view-title="{{ 'devprofile' | translate }}">
+  <ion-nav-buttons side="right">
+    <button class="button" ng-click="util.linkTo('home')" >
+      {{'home' | translate}}
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="row">
+      <div class="col-25">
+        <!--{{dev.image}}-->
+      </div>
+      <div class="col-25">
+        <!--{{dev.name}}-->
+      </div>
+      <div class="col-25">
+        <!--{{dev.description}}-->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <ion-list">
+        <a class="item" ng-click="select_item(key)" ng-class="">Profile</a>
+        <a class="item" ng-click="select_item(key)" ng-class="">My Apps</a>
+        <!--a class="item" ng-click="select_item(key)" ng-class="">App Statistics</a-->
+        <a class="item" ng-click="select_item(key)" ng-class="">Feedback</a>
+        </ion-list>
+      </div>
+      <div class="col-75">
+        <ion-nav-view name="dev-profile"></ion-nav-view>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

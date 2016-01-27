@@ -19,31 +19,19 @@
       <div class="row icon-row">
         <div ng-repeat="app in apps.slice(0, 4)" class="col-25 text-center">
           <a href="#/tab/apps/{{app.id}}">
-          <img ng-src="{{ app.logo }}" width="100%"></a>
-          <p>{{app.name}}</p>
+            <img ng-src="{{ app.logo }}" width="100%">
+          </a><p>{{app.name}}</p>
         </div>
       </div>
 
       <div class="row icon-row">
         <div ng-repeat="app in apps.slice(4, 8)" class="col-25 text-center">
           <a href="#/tab/apps/{{app.id}}">
-            <img ng-src="{{ app.logo }}" width="100%"></a>{{app.name}}
+            <img ng-src="{{ app.logo }}" width="100%">
+          </a><p>{{app.name}}</p>
         </div>
       </div>
 
-
     </section>
-    <!--ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
-
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
-          Delete
-        </ion-option-button>
-      </ion-item>
-    </ion-list-->
   </ion-content>
 </ion-view>

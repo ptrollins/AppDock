@@ -1,0 +1,42 @@
+<ion-view view-title="{{'social' | translate}}">
+  <ion-nav-buttons side="right">
+    <button class="button" ng-click="util.linkTo('home')" >
+      {{'home' | translate}}
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="padding">
+    <div class="row">
+      <div class="col-33">
+        <div>
+          <img ng-src="{{ app.logo }}" width="100%">
+          <!--img ng-src="{{app.logo}}" style="width: 64px; height: 64px"-->
+        </div>
+        <div><h2>{{app.name}}</h2></div>
+        <div ng-repeat="platform in app.platforms">{{platform}}</div><br>
+        <div>{{app.size}}</div><br>
+        <div>
+          <h2>Description</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec,
+            mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.</p>
+        </div>
+      </div>
+      <div class="col-33">
+        <list class="list">
+          <label class="item item-input">
+            <input type="tel" placeholder="{{'telephone' | translate}}">
+          </label>
+          <button class="item">Send SMS</button>
+        </list><br>
+
+        <div>
+          <h2>QR Code</h2>
+          <img src="{{ app.qrcode }}">
+        </div>
+      </div>
+      <div class="col-33">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit.</p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

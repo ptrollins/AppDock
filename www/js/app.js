@@ -10,8 +10,9 @@ angular.module('AppDock', [
   //'AppDock.controllers',
   //'AppDock.services',
   'pascalprecht.translate',
-  'ngIdle'
+  'ngIdle',
   // 'KeepaliveProvider'
+  'ionic.rating'
 ])
 
   .run(function($ionicPlatform, $rootScope, $state, Idle) {
@@ -31,6 +32,7 @@ angular.module('AppDock', [
 
     Idle.watch();
     $rootScope.$on('IdleTimeout', function() {
+
       $state.go('home');
     });
   })
@@ -68,17 +70,19 @@ angular.module('AppDock', [
         url: '/dash',
         views: {
           'tab-dash': {
-            templateUrl: 'templates/tab-dash.html',
+            templateUrl: 'templates/dash-tab.html',
             controller: 'DashCtrl'
           }
         }
       })
 
+      // Apps Tab
+
       .state('tab.apps', {
         url: '/apps',
         views: {
           'tab-apps': {
-            templateUrl: 'templates/tab-apps.html',
+            templateUrl: 'templates/apps-tab.html',
             controller: 'AppsCtrl'
           }
         }
@@ -94,31 +98,109 @@ angular.module('AppDock', [
         }
       })
 
+      .state('tab.app-download', {
+        url: '/apps/download/:appId',
+        views: {
+          'tab-apps': {
+            templateUrl: 'templates/app-download.html',
+            controller: 'AppDownloadCtrl'
+          }
+        }
+      })
+
+      // Developer Tab
+
+      .state('tab.developers', {
+        url: '/developers',
+        views: {
+          'tab-developers': {
+            templateUrl: 'templates/developers-tab.html',
+            controller: 'DevelopersCtrl'
+          }
+        }
+      })
+
+      .state('tab.dev-template', {
+        url: '/developer/:devId',
+        views: {
+          'tab-developers': {
+            templateUrl: 'templates/dev-template.html',
+            controller: 'DevTemplateCtrl'
+          }
+        }
+      })
+
+      .state('tab.dev-template.dev-profile', {
+        url: '/developer/profile/:devId',
+        views: {
+          'developer': {
+            templateUrl: 'templates/dev-profile.html',
+            controller: 'DevProfileCtrl'
+          }
+        }
+      })
+
+      .state('tab.dev-apps', {
+        url: '/developer/apps/:devId',
+        views: {
+          'developer': {
+            templateUrl: 'templates/dev-apps.html',
+            controller: 'DevAppsCtrl'
+          }
+        }
+      })
+
+      .state('tab.dev-feedback', {
+        url: '/developer/feedback/:devId',
+        views: {
+          'developer': {
+            templateUrl: 'templates/dev-feedback.html',
+            controller: 'DevFeedbackCtrl'
+          }
+        }
+      })
+
+      //.state('tab.dev-dashboard', {
+      //  url: '/developer/dashboard/:devId',
+      //  views: {
+      //    'developer': {
+      //      templateUrl: 'templates/dev-dashboard.html',
+      //      controller: 'DevDashCtrl'
+      //    }
+      //  }
+      //})
+
+      // How To Tab
+
       .state('tab.howto', {
         url: '/howto',
         views: {
           'tab-howto': {
-            templateUrl: 'templates/tab-howto.html',
+            templateUrl: 'templates/howto-tab.html',
             controller: 'HowToCtrl'
           }
         }
       })
 
+      // Social Tab
+
       .state('tab.social', {
         url: '/social',
         views: {
           'tab-social': {
-            templateUrl: 'templates/tab-social.html',
+            templateUrl: 'templates/social-tab.html',
             controller: 'SocialCtrl'
           }
         }
       })
 
+      // About Tab
+
       .state('tab.about', {
         url: '/about',
         views: {
           'tab-about': {
-            templateUrl: 'templates/tab-about.html',
+            templateUrl: 'templates/about-tab.html',
             controller: 'AboutCtrl'
           }
         }

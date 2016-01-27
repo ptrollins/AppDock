@@ -1,0 +1,21 @@
+<ion-view view-title="{{ 'howto' | translate }}">
+  <ion-nav-buttons side="right">
+    <button class="button" ng-click="util.linkTo('home')" >
+      {{'home' | translate}}
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="row">
+      <div class="col-25">
+        <ion-list ng-repeat="(key, item) in videos"}">
+          <a class="item" ng-click="select_item(key)" ng-class="{ 'active': activeItem === '{{item.name}}'}">{{item.name | translate}}</a>
+        </ion-list>
+      </div>
+      <div class="col-75">
+        <video ng-src="{{vidsrc}}" controls="controls" preload="metadata" webkit-playsinline="webkit-playsinline" class="videoPlayer" width="100%">
+          <!--source ng-src="{{vidsrc}}" type="video/mp4"/-->
+        </video>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

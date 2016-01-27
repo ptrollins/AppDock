@@ -6,8 +6,6 @@ angular.module('AppDock')
     '$translate',
     function($rootScope, $scope, $state, $translate) {
 
-      console.log('test');
-
       $scope.changeAndGo = function (lang) {
         $scope.ChangeLanguage(lang);
         $state.go('tab.apps');

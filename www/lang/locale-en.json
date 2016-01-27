@@ -1,21 +1,36 @@
 {
   "language_type": "EN",
-  "Back":"Back",
+  "back":"Back",
   "home":"Home",
+  "submit": "Submit",
+  "cancel": "Cancel",
+  "download": "Download",
 
   "dashboard": "Dashboard",
 
   "apps": "Apps",
-  "download": "DOWNLOAD",
+  "downloadbtn": "DOWNLOAD",
   "description": "Description",
   "comments": "Comments",
   "ratethisapp": "Rate This App",
+  "rate": "Rate",
+  "telephone": "Telephone",
 
+  "devprofile":"Developer Profile",
+  "developers":"Developers",
+  
   "howto": "How To",
+  "howtosearch": "How to Search for Apps",
+  "howtoinstall": "How to Install an App",
+  "howtodelete": "How to Delete an App",
 
   "social": "Social",
 
-  "about": "About/Feedback",
+  "feedback": "Feedback",
+
+  "about": "About",
+
+  "donate": "Donate",
 
   "January":"January",
   "February":"February",

@@ -1,7 +1,9 @@
 {
   "language_type": "WO",
-  "Back":"Retourner-wo",
+  "back":"Retourner-wo",
   "home":"Home-wo",
+  "submit": "Submit-wo",
+  "cancel": "Cancel-wo",
 
   "dashboard": "Dashboard-Wo",
 
@@ -10,12 +12,25 @@
   "description": "Description-wo",
   "comments": "Commentaire-wo",
   "ratethisapp": "Rate This App-wo",
+  "rate": "Évaluer-wo",
+  "feedback": "Feedback-wo",
+  "telephone": "Telephone-wo",
+
+  "devprofile":"Developer Profile-wo",
+  "developers":"Developers-wo",
 
   "howto": "How To-wo",
+  "howtosearch": "How to Search for Apps",
+  "howtoinstall": "How to Install an App",
+  "howtodelete": "How to Delete an App",
 
   "social": "Social-wo",
 
-  "about": "About/Feedback-wo",
+  "feedback": "Feedback-wo",
+
+  "about": "About-wo",
+
+  "donate": "Donate-wo",
 
   "January":"Samwiye",
   "February":"Fewrie",

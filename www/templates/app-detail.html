@@ -17,7 +17,12 @@
           <!--img ng-src="{{app.logo}}" style="width: 64px; height: 64px"-->
         </div>
         <div><h2 class="text-center">{{app.name}}</h2></div>
-        <div class="text-center"><button class="button icon-left ion-android-download button-calm">{{'download' | translate}}</button></div>
+        <div class="text-center">
+
+          <button class="button icon-left ion-android-download button-calm" ui-sref="tab.app-download({appId: app.id})">
+            {{'downloadbtn' | translate}}
+          </button>
+        </div>
       </div>
       <div class="col-75">
 
@@ -42,6 +47,6 @@
     <div class="row">
       <p>{{app.comments}}</p>
     </div>
-    <button class="button icon-left ion-star button-calm">{{'ratethisapp' | translate}}</button>
+    <button class="button icon-left ion-star button-calm" ng-click="openModal()">{{'ratethisapp' | translate}}</button>
   </ion-content>
 </ion-view>
