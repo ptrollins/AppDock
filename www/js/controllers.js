@@ -1,9 +1,5 @@
 angular.module('AppDock')
 
-  .controller('DashCtrl', function($scope, UtilFactory) {
-    $scope.util = UtilFactory;
-  })
-
   .controller('AppsCtrl', function($scope, $filter, Apps, UtilFactory) {
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
@@ -67,7 +63,46 @@ angular.module('AppDock')
 
   .controller('DevTemplateCtrl', function($scope, $stateParams, Apps) {
     $scope.developer = Apps.getDeveloper($stateParams.devId);
-    $scope.view = 'dev-profile';
+
+    $scope.activeItem = 'profile';
+    $scope.showProfile = true;
+    $scope.showApps = false;
+    $scope.showFeedback = false;
+    $scope.setProfile = function(){
+      $scope.activeItem = 'profile';
+      $scope.showProfile = true;
+      $scope.showApps = false;
+      $scope.showFeedback = false;
+    };
+    $scope.setApps = function(){
+      $scope.activeItem = 'apps';
+      $scope.showProfile = false;
+      $scope.showApps = true;
+      $scope.showFeedback = false;
+    };
+    $scope.setFeedback = function(){
+      $scope.activeItem = 'feedback';
+      $scope.showProfile = false;
+      $scope.showApps = false;
+      $scope.showFeedback = true;
+    };
+    //$scope.view1 = 'dev-profile';
+    //$scope.setView = function(view){
+    //  $scope.view1 = view;
+    //  state.go('tab.dev-template.' + view + '/:devId',{devId:$stateParams.devId});
+    //};
+  })
+
+  .controller('DevProfileCtrl', function($scope, $stateParams, Apps) {
+    $scope.developer = Apps.getDeveloper($stateParams.devId);
+  })
+
+  .controller('DevAppsCtrl', function($scope, $stateParams, Apps) {
+    $scope.developer = Apps.getDeveloper($stateParams.devId);
+  })
+
+  .controller('DevFeedbackCtrl', function($scope, $stateParams, Apps) {
+    $scope.developer = Apps.getDeveloper($stateParams.devId);
   })
 
   .controller('HowToCtrl', function($scope, Apps, UtilFactory) {
@@ -83,7 +118,30 @@ angular.module('AppDock')
     };
   })
 
-  .controller('SocialCtrl', function($scope, UtilFactory) {
+  .controller('SocialCtrl', function($scope, UtilFactory, Camera) {
+    $scope.util = UtilFactory;
+
+    $scope.getPhoto = function() {
+      console.log('Getting camera');
+      Camera.getPicture({
+        quality: 75,
+        targetWidth: 320,
+        targetHeight: 320,
+        saveToPhotoAlbum: false
+      }).then(function (imageURI) {
+        console.log(imageURI);
+        $scope.lastPhoto = imageURI;
+      }, function (err) {
+        console.err(err);
+      });
+    };
+  })
+
+  .controller('FeedbackCtrl', function($scope, UtilFactory) {
+    $scope.util = UtilFactory;
+  })
+
+  .controller('DonateCtrl', function($scope, UtilFactory) {
     $scope.util = UtilFactory;
   })
 

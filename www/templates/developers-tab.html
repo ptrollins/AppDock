@@ -5,11 +5,12 @@
     </button>
   </ion-nav-buttons>
   <ion-content>
-    <div class="" ng-repeat="developer in developers">
-      <button href="#/tab/developer/{{developer.id}}">
+    <div class="list card" ng-repeat="developer in developers">
+      <a href="#/tab/developer/{{developer.id}}/profile/{{developer.id}}" class="item item-avatar">
+        <img ng-src="{{developer.image}}">
         <h2>{{developer.name}}</h2>
         <p>{{developer.description}}</p>
-      </button>
+      </a>
     </div>
   </ion-content>
 </ion-view>

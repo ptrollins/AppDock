@@ -7,12 +7,11 @@
 // 'AppDock.controllers' is found in controllers.js
 angular.module('AppDock', [
   'ionic',
-  //'AppDock.controllers',
-  //'AppDock.services',
-  'pascalprecht.translate',
-  'ngIdle',
+  'pascalprecht.translate', // for translation
+  'ngIdle', // for timeout
   // 'KeepaliveProvider'
-  'ionic.rating'
+  'ionic.rating', // for rating stars
+  'ngCordova' // for camera
 ])
 
   .run(function($ionicPlatform, $rootScope, $state, Idle) {
@@ -41,8 +40,10 @@ angular.module('AppDock', [
     $stateProvider,
     $urlRouterProvider,
     $translateProvider,
-    IdleProvider
+    IdleProvider,
     // KeepaliveProvider
+    $compileProvider
+
   ) {
 
     // Ionic uses AngularUI Router which uses the concept of states
@@ -65,16 +66,6 @@ angular.module('AppDock', [
       })
 
       // Each tab has its own nav history stack:
-
-      .state('tab.dash', {
-        url: '/dash',
-        views: {
-          'tab-dash': {
-            templateUrl: 'templates/dash-tab.html',
-            controller: 'DashCtrl'
-          }
-        }
-      })
 
       // Apps Tab
 
@@ -130,45 +121,35 @@ angular.module('AppDock', [
         }
       })
 
-      .state('tab.dev-template.dev-profile', {
-        url: '/developer/profile/:devId',
+      .state('tab.dev-template.dev-profile/:devId', {
+        url: '/profile/:devId',
         views: {
-          'developer': {
+          'dev-profile': {
             templateUrl: 'templates/dev-profile.html',
             controller: 'DevProfileCtrl'
           }
         }
       })
 
-      .state('tab.dev-apps', {
-        url: '/developer/apps/:devId',
+      .state('tab.dev-template.dev-apps/:devId', {
+        url: '/apps/:devId',
         views: {
-          'developer': {
+          'dev-apps': {
             templateUrl: 'templates/dev-apps.html',
             controller: 'DevAppsCtrl'
           }
         }
       })
 
-      .state('tab.dev-feedback', {
-        url: '/developer/feedback/:devId',
+      .state('tab.dev-template.dev-feedback/:devId', {
+        url: '/feedback/:devId',
         views: {
-          'developer': {
+          'dev-feedback': {
             templateUrl: 'templates/dev-feedback.html',
             controller: 'DevFeedbackCtrl'
           }
         }
       })
-
-      //.state('tab.dev-dashboard', {
-      //  url: '/developer/dashboard/:devId',
-      //  views: {
-      //    'developer': {
-      //      templateUrl: 'templates/dev-dashboard.html',
-      //      controller: 'DevDashCtrl'
-      //    }
-      //  }
-      //})
 
       // How To Tab
 
@@ -194,7 +175,31 @@ angular.module('AppDock', [
         }
       })
 
-      // About Tab
+      // Appdock Feedback Tab
+
+      .state('tab.feedback', {
+        url: '/feedback',
+        views: {
+          'tab-feedback': {
+            templateUrl: 'templates/feedback-tab.html',
+            controller: 'FeedbackCtrl'
+          }
+        }
+      })
+
+      // Donate Tab
+
+      .state('tab.donate', {
+        url: '/donate',
+        views: {
+          'tab-donate': {
+            templateUrl: 'templates/donate-tab.html',
+            controller: 'DonateCtrl'
+          }
+        }
+      })
+
+        // About Tab
 
       .state('tab.about', {
         url: '/about',
@@ -243,5 +248,8 @@ angular.module('AppDock', [
     IdleProvider.idle(60); // 1 minutes idle
     IdleProvider.timeout(10); // after 10 seconds idle, time the user out
     // KeepaliveProvider.interval(10); //
+
+    // camera file whitelist
+    $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
 
   });

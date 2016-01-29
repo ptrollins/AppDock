@@ -115,23 +115,28 @@ angular.module('AppDock')
 
   var developers = [{
     id:0,
-    name:'Abby Ale',
+    name:'Adam Ale',
+    image: '../img/adam.jpg',
     description:'Android Developer'
   },{
     id:1,
-    name:'Bobby Brewer',
+    name:'Ben Brewer',
+    image: '../img/ben.png',
     description:'Android Developer'
   },{
     id:2,
-    name:'Cathrine Cocktail',
+    name:'Max Cocktail',
+    image: '../img/Max.png',
     description:'Android and IOS Developer'
   },{
     id:3,
-    name:'Derik Dunkel',
+    name:'Mike Dunkel',
+    image: '../img/Mike.png',
     description:'Android and IOS Developer'
   },{
     id:4,
-    name:'Erin Ethanol',
+    name:'Perry Ethanol',
+    image: '../img/Perry.png',
     description:'IOS Developer'
   }];
 
@@ -165,4 +170,32 @@ angular.module('AppDock')
       return null;
     }
   };
+}])
+
+// factory for button to go to state (home button)
+.factory('UtilFactory', ['$state', function($state) {
+  return {
+    linkTo: function(link) {
+      $state.go(link);
+    }
+  };
+}])
+
+// factory for camera
+.factory('Camera', ['$q', function($q) {
+
+  return {
+    getPicture: function(options) {
+      var q = $q.defer();
+
+      navigator.camera.getPicture(function(result) {
+        // Do any magic you need
+        q.resolve(result);
+      }, function(err) {
+        q.reject(err);
+      }, options);
+
+      return q.promise;
+    }
+  }
 }]);

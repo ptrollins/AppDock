@@ -6,37 +6,37 @@ navigation history that also transitions its views in and out.
 <ion-tabs class="tabs-icon-top tabs-color-active-calm">
 
   <!-- Apps Tab -->
-  <ion-tab title="{{ 'apps' | translate }}" icon-off="ion-iphone" icon-on="ion-iphone" href="#/tab/apps">
+  <ion-tab title="{{ 'apps' | translate }}" icon-off="ion-iphone" icon-on="ion-iphone" ui-sref="tab.apps">
     <ion-nav-view name="tab-apps"></ion-nav-view>
   </ion-tab>
 
   <!-- Developers Tab -->
-  <ion-tab title="{{ 'developers' | translate }}" icon-off="ion-person-stalker" icon-on="ion-person-stalker" href="#/tab/developers">
+  <ion-tab title="{{ 'developers' | translate }}" icon-off="ion-person-stalker" icon-on="ion-person-stalker" ui-sref="tab.developers">
     <ion-nav-view name="tab-developers"></ion-nav-view>
   </ion-tab>
 
   <!-- How To Tab -->
-  <ion-tab title="{{ 'howto' | translate }}" icon-off="ion-help-circled" icon-on="ion-help-circled" href="#/tab/howto">
+  <ion-tab title="{{ 'howto' | translate }}" icon-off="ion-help-circled" icon-on="ion-help-circled" ui-sref="tab.howto">
     <ion-nav-view name="tab-howto"></ion-nav-view>
   </ion-tab>
 
   <!-- Social Tab -->
-  <ion-tab title="{{ 'social' | translate }}" icon-off="ion-chatboxes" icon-on="ion-chatboxes" href="#/tab/social">
+  <ion-tab title="{{ 'social' | translate }}" icon-off="ion-chatboxes" icon-on="ion-chatboxes" ui-sref="tab.social">
     <ion-nav-view name="tab-social"></ion-nav-view>
   </ion-tab>
 
   <!-- Feedback Tab -->
-  <ion-tab title="{{ 'feedback' | translate }}" icon-off="ion-clipboard" icon-on="ion-clipboard" href="#/tab/feedback">
+  <ion-tab title="{{ 'feedback' | translate }}" icon-off="ion-clipboard" icon-on="ion-clipboard" ui-sref="tab.feedback">
     <ion-nav-view name="tab-feedback"></ion-nav-view>
   </ion-tab>
 
   <!-- Donate Tab -->
-  <ion-tab title="{{ 'donate' | translate }}" icon-off="ion-card" icon-on="ion-home" href="#/tab/donate">
-    <ion-nav-view name="tab-feedback"></ion-nav-view>
+  <ion-tab title="{{ 'donate' | translate }}" icon-off="ion-card" icon-on="ion-card" ui-sref="tab.donate">
+    <ion-nav-view name="tab-donate"></ion-nav-view>
   </ion-tab>
 
   <!-- About Tab -->
-  <ion-tab title="{{ 'about' | translate }}" icon-off="ion-information-circled" icon-on="ion-information-circled" href="#/tab/about">
+  <ion-tab title="{{ 'about' | translate }}" icon-off="ion-information-circled" icon-on="ion-information-circled" ui-sref="tab.about">
     <ion-nav-view name="tab-about"></ion-nav-view>
   </ion-tab>
 

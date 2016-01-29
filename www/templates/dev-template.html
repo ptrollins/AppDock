@@ -5,28 +5,24 @@
     </button>
   </ion-nav-buttons>
   <ion-content>
-    <div class="row">
-      <div class="col-25">
-        <!--{{dev.image}}-->
-      </div>
-      <div class="col-25">
-        <!--{{dev.name}}-->
-      </div>
-      <div class="col-25">
-        <!--{{dev.description}}-->
-      </div>
+    <div class="row row-center">
+        <img ng-src="{{developer.image}}" style="width: 128px; height: 128px;">
+        <h1 class="padding-left padding-right" style="float: right">{{developer.name}}</h1>
+        <h2 class="padding-left padding-right" style="float: right">{{developer.description}}</h2>
     </div>
+    <hr style="width: 100%">
     <div class="row">
       <div class="col-25">
         <ion-list">
-        <a class="item" ng-click="select_item(key)" ng-class="">Profile</a>
-        <a class="item" ng-click="select_item(key)" ng-class="">My Apps</a>
-        <!--a class="item" ng-click="select_item(key)" ng-class="">App Statistics</a-->
-        <a class="item" ng-click="select_item(key)" ng-class="">Feedback</a>
+        <a class="item" ng-class="{ 'active': activeItem === 'profile'}" ng-click="setProfile()">Profile</a>
+        <a class="item" ng-class="{ 'active': activeItem === 'apps'}" ui-sref="tab.dev-template.dev-apps/:devId">My Apps</a>
+        <a class="item" ng-class="{ 'active': activeItem === 'feedback'}" ng-click="setFeedback()">Feedback</a>
         </ion-list>
       </div>
-      <div class="col-75">
-        <ion-nav-view name="dev-profile"></ion-nav-view>
+      <div class="col-75 padding-left">
+        <ion-nav-view name="dev-profile" ></ion-nav-view>
+        <ion-nav-view name="dev-apps"></ion-nav-view>
+        <ion-nav-view name="dev-feedback"></ion-nav-view>
       </div>
     </div>
   </ion-content>
