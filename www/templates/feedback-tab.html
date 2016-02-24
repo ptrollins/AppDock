@@ -1,43 +1,59 @@
-<ion-view view-title="{{ 'feedback' | translate }}">
+<ion-view view-title="AppDock {{ 'feedback' | translate }}">
     <ion-nav-buttons side="right">
         <button class="button" ng-click="util.linkTo('home')" >
             {{'home' | translate}}
         </button>
     </ion-nav-buttons>
     <ion-content>
-        <h2>Age</h2>
-        <div class="button-bar padding-left padding-right">
-            <a class="button padding-right">&#62;12</a>
-            <a class="button padding-right">12-15</a>
-            <a class="button padding-right">16-18</a>
-            <a class="button padding-right">19-24</a>
-            <a class="button">25+</a>
+        <div class="padding" ng-repeat="question in questions">
+            <h2>{{question.name}}</h2>
+            <div class="button-bar bar-calm padding-left padding-right">
+                <button class="button" ng-repeat="option in question.options">{{option.name}}</button>
+            </div>
+        </div>
+        <!--h2>Age</h2>
+        <div class="button-bar bar-calm padding-left padding-right">
+            <button class="button padding-right">&#62;12</button>
+            <button class="button padding-right">12-15</button>
+            <button class="button padding-right">16-18</button>
+            <button class="button padding-right">19-24</button>
+            <button class="button  ">25+</button>
         </div>
         <h2>Gender</h2>
-        <div class="button-bar">
-            <a class="button">Male</a>
-            <a class="button">Female</a>
-            <a class="button">Other</a>
+        <div class="button-bar bar-calm padding-left padding-right">
+            <button class="button">Male</button>
+            <button class="button">Female</button>
+            <button class="button">Other</button>
         </div>
         <h2>Profession</h2>
-        <div class="button-bar">
-            <a class="button">Student</a>
-            <a class="button">Teacher</a>
-            <a class="button">Farmer</a>
-            <a class="button">Engineer</a>
-            <a class="button">Financial</a>
+        <div class="button-bar bar-calm padding-left padding-right">
+            <button class="button">Student</button>
+            <button class="button">Teacher</button>
+            <button class="button">Farmer</button>
+            <button class="button">Engineer</button>
+            <button class="button">Financial</button>
         </div>
         <h2>Is this your first time using AppDock?</h2>
-        <div class="button-bar">
-            <a class="button">Yes</a>
-            <a class="button">No</a>
+        <div class="button-bar bar-calm padding-left padding-right">
+            <button class="button">Yes</button>
+            <button class="button">No</button>
         </div>
         <h2>How long did you spend on AppDock?</h2>
-        <div class="button-bar">
-            <a class="button">&#62;30 min</a>
-            <a class="button">30-60 min</a>
-            <a class="button">60-120 min</a>
-            <a class="button">120+ min</a>
+        <div class="button-bar bar-calm padding-left padding-right">
+            <button class="button">&#62;30 min</button>
+            <button class="button">30-60 min</button>
+            <button class="button">60-120 min</button>
+            <button class="button">120+ min</button>
+        </div-->
+        <div class="text-center">
+            <button class="button icon-left ion-clipboard button-outline button-large button-calm" ng-click="openModal()">
+                Additional Feedback
+            </button>
+        </div>
+        <div class="text-right padding">
+            <button class="button icon-left ion-paper-airplane button-large button-calm">
+                Submit
+            </button>
         </div>
     </ion-content>
 </ion-view>

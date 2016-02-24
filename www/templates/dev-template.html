@@ -1,9 +1,9 @@
 <ion-view view-title="{{ 'devprofile' | translate }}">
-  <ion-nav-buttons side="right">
-    <button class="button" ng-click="util.linkTo('home')" >
-      {{'home' | translate}}
-    </button>
-  </ion-nav-buttons>
+  <ion-nav-bar class="bar-calm">
+    <ion-nav-back-button class="button-clear" ng-click="util.linkTo('tab.developers')">
+      <i class="ion-chevron-left"></i> {{ 'devprofile' | translate }}
+    </ion-nav-back-button>
+  </ion-nav-bar>
   <ion-content>
     <div class="row row-center">
         <img ng-src="{{developer.image}}" style="width: 128px; height: 128px;">
@@ -11,18 +11,22 @@
         <h2 class="padding-left padding-right" style="float: right">{{developer.description}}</h2>
     </div>
     <hr style="width: 100%">
-    <div class="row">
-      <div class="col-25">
-        <ion-list">
-        <a class="item" ng-class="{ 'active': activeItem === 'profile'}" ng-click="setProfile()">Profile</a>
-        <a class="item" ng-class="{ 'active': activeItem === 'apps'}" ui-sref="tab.dev-template.dev-apps/:devId">My Apps</a>
-        <a class="item" ng-class="{ 'active': activeItem === 'feedback'}" ng-click="setFeedback()">Feedback</a>
+    <div class="row" style="height: 100%">
+      <div style="width: 25%; height: 100%; float:left;">
+        <ion-list>
+        <a class="item" ng-class="{ 'active': activeItem === 'profile'}"
+           ui-sref="tab.dev-template.dev-profile" ng-click="setProfile()">Profile</a>
+        <a class="item" ng-class="{ 'active': activeItem === 'apps'}"
+           ui-sref="tab.dev-template.dev-apps" ng-click="setApps()">My Apps</a>
+        <a class="item" ng-class="{ 'active': activeItem === 'feedback'}"
+           ui-sref="tab.dev-template.dev-feedback" ng-click="setFeedback()">Feedback</a>
         </ion-list>
       </div>
-      <div class="col-75 padding-left">
-        <ion-nav-view name="dev-profile" ></ion-nav-view>
-        <ion-nav-view name="dev-apps"></ion-nav-view>
-        <ion-nav-view name="dev-feedback"></ion-nav-view>
+      <div class="" style="width: 74%; height: 100%; float:right;">
+        <ion-nav-view  name="dev-profile"></ion-nav-view>
+        <ion-nav-view  name="dev-apps"></ion-nav-view>
+        <ion-nav-view  name="dev-feedback"></ion-nav-view>
+        <ion-nav-view  name="dev-app"></ion-nav-view>
       </div>
     </div>
   </ion-content>

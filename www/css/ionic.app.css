@@ -9773,3 +9773,6 @@ ul.rating li i {
   font-size: 30px; }
   ul.rating li i .item.active {
     background-color: #11c1f3 !important; }
+
+ion-nav-view.view-container div.scroll {
+  height: 100%; }

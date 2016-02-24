@@ -1,10 +1,54 @@
-<ion-view view-title="{{ 'donate' | translate }}">
-    <ion-nav-buttons side="right">
-        <button class="button" ng-click="util.linkTo('home')" >
-            {{'home' | translate}}
-        </button>
-    </ion-nav-buttons>
+<ion-view view-title="AppDock - {{'download' | translate}} {{app.name}}">
+    <ion-nav-bar class="bar-calm">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+    </ion-nav-bar>
     <ion-content>
-
+        <div class="row">
+            <div class="col-33" style="padding: 30px">
+                <div>
+                    <h1>Donate to AppDock</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec,
+                        mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.</p>
+                </div>
+            </div>
+            <div class="col-33" style="padding: 30px">
+                <list class="list">
+                    <label class="item item-input">
+                        <input type="tel" placeholder="{{'telephone' | translate}}">
+                    </label>
+                </list>
+                <div class="button-bar">
+                    <a class="button">1</a>
+                    <a class="button">2</a>
+                    <a class="button">3</a>
+                </div>
+                <div class="button-bar">
+                    <a class="button">4</a>
+                    <a class="button">5</a>
+                    <a class="button">6</a>
+                </div>
+                <div class="button-bar">
+                    <a class="button">7</a>
+                    <a class="button">8</a>
+                    <a class="button">9</a>
+                </div>
+                <div class="button-bar">
+                    <a class="button">*</a>
+                    <a class="button">0</a>
+                    <a class="button">#</a>
+                </div><br>
+                <button class="button button-calm">Send SMS</button>
+            </div>
+            <div class="col-33" style="padding: 30px">
+                <div>
+                    <h2>QR Code</h2>
+                    <img src="../img/qrcode.png">
+                </div>
+                <div>
+                    <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit.</p>
+                </div>
+            </div>
+        </div>
     </ion-content>
 </ion-view>

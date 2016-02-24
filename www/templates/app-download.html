@@ -14,9 +14,8 @@
           <div ng-repeat="platform in app.platforms">{{platform}}</div><br>
           <div>{{app.size}}</div><br>
           <div>
-            <h2>Description</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec,
-              mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.</p>
+            <h2>{{'description' | translate}}</h2>
+            <p>{{app.description}}</p>
           </div>
         </div>
         <div class="col-33" style="padding: 30px">

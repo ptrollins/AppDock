@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<ion-view view-title="{{developer.name}} - {{'apps' | translate}}" id="devapps">
+    <ion-content>
+        <h2>Apps</h2>
+        <div class="row row-center">
+            <div class="col-50 list">
+                <div class="item item-thumbnail-left" ng-repeat="app in apps" ui-sref="tab.dev-template.dev-apps/app({appId:'{{app.id}}'})"> <!--tab.app-detail({appId: '{{app.id}}'}) -->
+                    <img ng-src="{{app.logo}}" height="48" width="48">
+                    <h2>{{app.name}}</h2>
+                    <p>{{app.description}}</p>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
 
-</body>
-</html>
