@@ -1,6 +1,6 @@
 angular.module('AppDock')
 
-    .controller('AppsCtrl', function ($scope, $filter, Apps, UtilFactory, AppDBService) {
+    .controller('AppsCtrl', function ($scope, $filter, UtilFactory, AppDBService) {
         // With the new view caching in Ionic, Controllers are only called
         // when they are recreated or on app start, instead of every page change.
         // To listen for when this page is active (for example, to refresh data),
@@ -15,32 +15,34 @@ angular.module('AppDock')
             include_docs: true
         }).then(function (result) {
             $scope.apps = result.rows.map(function (row) { return row.doc; });
-            console.log($scope.apps);
         }).catch(function (err) {
-            console.log(err);
+            console.log(err+"1");
         });
 
-
         $scope.currmonth = $filter('date')(new Date(), 'MMMM');
+
+        $scope.util = UtilFactory;
 
         //$scope.apps = Apps.all();
         //$scope.remove = function(app) {
         //Apps.remove(app);
         //};
-
-        $scope.util = UtilFactory;
     })
 
-    .controller('AppDetailCtrl', function ($scope, $stateParams, Apps, $ionicModal, AppDBService) {
+    .controller('AppDetailCtrl', function ($scope, $stateParams, $ionicModal, AppDBService) {
 
         var appdb = AppDBService.getAppDB();
         appdb.allDocs({
             include_docs: true
         }).then(function (result) {
-            $scope.app = result.rows.map(function (row) { if (row.doc.id == $stateParams.appId )return row.doc; });
-            console.log($scope.app);
+            result.rows.map(function (row) {
+                if (row.doc.id == $stateParams.appId )
+                {
+                    $scope.app = row.doc;
+                }
+            });
         }).catch(function (err) {
-            console.log(err);
+            console.log(err+"2");
         });
         //$scope.app = Apps.get($stateParams.appId);
 
@@ -75,40 +77,51 @@ angular.module('AppDock')
         });
     })
 
-    .controller('AppDownloadCtrl', function ($scope, $stateParams, Apps) {
+    .controller('AppDownloadCtrl', function ($scope, $stateParams, AppDBService) {
+        //$scope.app = Apps.get($stateParams.appId);
         var appdb = AppDBService.getAppDB();
         appdb.allDocs({
             include_docs: true
         }).then(function (result) {
-            $scope.app = result.rows.map(function (row) { if (row.id == $stateParams.appId ) return row.doc; });
-            console.log($scope.app);
+            result.rows.map(function (row) {
+                if (row.doc.id == $stateParams.appId )
+                {
+                    $scope.app = row.doc;
+                }
+            });
         }).catch(function (err) {
-            console.log(err);
+            console.log(err+"3");
         });
-        //$scope.app = Apps.get($stateParams.appId);
     })
 
-    .controller('DevelopersCtrl', function ($scope, $stateParams, Apps, UtilFactory) {
+    .controller('DevelopersCtrl', function ($scope, $stateParams, UtilFactory, DevDBService) {
         var developerdb = DevDBService.getDeveloperDB();
         developerdb.allDocs({
             include_docs: true
         }).then(function (result) {
             $scope.developers = result.rows.map(function (row) { return row.doc; });
         }).catch(function (err) {
-            console.log(err);
+            console.log(err+"4");
         });
-        //$scope.developers = Apps.allDevelopers();
+        // $scope.developers = Apps.allDevelopers();
         $scope.util = UtilFactory;
     })
 
-    .controller('DevTemplateCtrl', function ($scope, $stateParams, Apps, UtilFactory, $ionicViewSwitcher) {
-        // read a document by ID; log the response
-        //db.get(DOCUMENT_ID, function (err, response) {
-        //  console.log(err || response);
-        //});
+    .controller('DevTemplateCtrl', function ($scope, $stateParams, UtilFactory, DevDBService, $ionicViewSwitcher) {
 
         $scope.util = UtilFactory; // for back button
-        $scope.developer = Apps.getDeveloper($stateParams.devId);
+        //$scope.developer = Apps.getDeveloper($stateParams.devId);
+        var developerdb = DevDBService.getDeveloperDB();
+        developerdb.allDocs({
+            include_docs: true
+        }).then(function (result) {
+            result.rows.map(function (row) {
+                if (row.doc.id == $stateParams.devId){
+                    $scope.developer =  row.doc;}
+            });
+        }).catch(function (err) {
+            console.log(err+"5");
+        });
 
         $scope.activeItem = 'profile';
         $scope.showProfile = true;
@@ -176,17 +189,64 @@ angular.module('AppDock')
         //};
     })
 
-    .controller('DevProfileCtrl', function ($scope, $stateParams, Apps) {
-        $scope.developer = Apps.getDeveloper($stateParams.devId);
+    .controller('DevProfileCtrl', function ($scope, $stateParams, DevDBService) {
+        //$scope.developer = Apps.getDeveloper($stateParams.devId);
+        var developerdb = DevDBService.getDeveloperDB();
+        developerdb.allDocs({
+            include_docs: true
+        }).then(function (result) {
+            result.rows.map(function (row) {
+                if (row.doc.id == $stateParams.devId )
+                    $scope.developer =  row.doc;
+            });
+        }).catch(function (err) {
+            console.log(err+"6");
+        });
     })
 
-    .controller('DevAppsCtrl', function ($scope, $stateParams, Apps) {
-        $scope.developer = Apps.getDeveloper($stateParams.devId);
-        $scope.apps = Apps.getByDeveloper($scope.developer.name);
+    .controller('DevAppsCtrl', function ($scope, $stateParams, DevDBService, AppDBService) {
+        //$scope.developer = Apps.getDeveloper($stateParams.devId);
+        var developerdb = DevDBService.getDeveloperDB();
+        developerdb.allDocs({
+            include_docs: true
+        }).then(function (result) {
+            result.rows.map(function (row) {
+                if (row.doc.id == $stateParams.devId )
+                    $scope.developer =  row.doc;
+            });
+
+            //$scope.apps = Apps.getByDeveloper($scope.developer.name);
+            var appdb = AppDBService.getAppDB();
+            appdb.allDocs({
+                include_docs: true
+            }).then(function (result) {
+                result.rows.map(function (row) {
+                    if (row.developer == $scope.developer.name)
+                        $scope.developer =  row.doc;
+                });
+            }).catch(function (err) {
+                console.log(err+"7");
+            });
+        }).catch(function (err) {
+            console.log(err+"8");
+        });
+
+
     })
 
-    .controller('DevFeedbackCtrl', function ($scope, $stateParams, Apps) {
-        $scope.developer = Apps.getDeveloper($stateParams.devId);
+    .controller('DevFeedbackCtrl', function ($scope, $stateParams, DevDBService) {
+        //$scope.developer = Apps.getDeveloper($stateParams.devId);
+        var developerdb = DevDBService.getDeveloperDB();
+        developerdb.allDocs({
+            include_docs: true
+        }).then(function (result) {
+            result.rows.map(function (row) {
+                if (row.doc.id == $stateParams.devId )
+                    $scope.developer =  row.doc;
+            });
+        }).catch(function (err) {
+            console.log(err+"9");
+        });
 
         //function addDoc() {
         //  var doc = {_id: new Date().toISOString()};
@@ -198,17 +258,26 @@ angular.module('AppDock')
         //}
     })
 
-    .controller('HowToCtrl', function ($scope, Apps, UtilFactory) {
+    .controller('HowToCtrl', function ($scope, UtilFactory, VideoDBService) {
         $scope.util = UtilFactory;
-        $scope.videos = Apps.getVideos();
-        $scope.vidsrc = $scope.videos[1].video;
-        $scope.activeItem = $scope.videos[1].name;
-        $scope.select_item = function (key) {
-            // highlights active howto list item
-            $scope.activeItem = $scope.videos[key].name;
-            // sets video source for active list item
-            $scope.vidsrc = $scope.videos[key].video;
-        };
+        //$scope.videos = Apps.getVideos();
+        var videodb = VideoDBService.getVideoDB();
+        videodb.allDocs({
+            include_docs: true
+        }).then(function (result) {
+            $scope.videos = result.rows.map(function (row) { return row.doc; });
+            console.log($scope.videos instanceof Array);
+            $scope.vidsrc = $scope.videos[1];//.video;
+            $scope.activeItem = $scope.videos[1].name;
+            $scope.select_item = function (key) {
+                // highlights active howto list item
+                $scope.activeItem = $scope.videos[key].name;
+                // sets video source for active list item
+                $scope.vidsrc = $scope.videos[key].video;
+            };
+        }).catch(function (err) {
+            console.log(err+"10");
+        });
     })
 
     .controller('SocialCtrl', function ($scope, UtilFactory, Camera) {
@@ -226,14 +295,22 @@ angular.module('AppDock')
                 console.log(imageURI);
                 $scope.lastPhoto = imageURI;
             }, function (err) {
-                console.err(err);
+                console.err(err+"11");
             });
         };
     })
 
-    .controller('FeedbackCtrl', function ($scope, UtilFactory, Apps, $ionicModal) {
+    .controller('FeedbackCtrl', function ($scope, UtilFactory, QuestionDBService, $ionicModal) {
         $scope.util = UtilFactory;
-        $scope.questions = Apps.allQuestions();
+        //$scope.questions = Apps.allQuestions();
+        var questiondb = QuestionDBService.getQuestionDB();
+        questiondb.allDocs({
+            include_docs: true
+        }).then(function (result) {
+            $scope.questions = result.rows.map(function (row) { return row.doc; });
+        }).catch(function (err) {
+            console.log(err+"12");
+        });
 
         $scope.rating = {};
         $scope.rating.rate = 3;

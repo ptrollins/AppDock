@@ -45,7 +45,11 @@ angular.module('AppDock', [
                       $translateProvider,
                       IdleProvider,
                       // KeepaliveProvider
-                      $compileProvider) {
+                      $compileProvider,
+                      $ionicConfigProvider
+    ) {
+
+        $ionicConfigProvider.tabs.position('bottom');
 
         // Ionic uses AngularUI Router which uses the concept of states
         // Learn more here: https://github.com/angular-ui/ui-router
