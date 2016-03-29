@@ -19,6 +19,8 @@ angular.module('AppDock')
             console.log(err+"1");
         });
 
+       // $scope.apps = AppDBService.getApps();
+
         $scope.currmonth = $filter('date')(new Date(), 'MMMM');
 
         $scope.util = UtilFactory;

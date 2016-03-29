@@ -1,4 +1,4 @@
-<ion-view view-title="{{ 'apps' | translate }}">
+<ion-view view-title="AppDock - {{ 'apps' | translate }}">
 
   <ion-nav-buttons side="right">
     <button class="button" ng-click="util.linkTo('home')" >
@@ -11,7 +11,7 @@
       <div class = "row header">
 
         <div class = "col text-right">
-          Top 8 Apps for {{ currmonth | translate }}
+          {{ 'topappstitle' | translate }} {{ currmonth | translate }}
         </div>
         <div class = "col"></div>
         <div class = "col"></div>

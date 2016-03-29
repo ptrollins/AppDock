@@ -13,6 +13,19 @@ angular.module('AppDock')
             getAppDB: function () {
                 return appdb;
             },
+            getApps: function(){
+
+                 appdb.allDocs({
+                    include_docs: true
+                }).then(function (result) {
+                  var ab= result.rows.map(function (row) {
+                        return row.doc; }); console.log(ab);
+                    return ab;
+                }).catch(function (err) {
+                    console.log(err+"1");
+                });
+
+            },
             getRemoteAppDB: function () {
                 return remoteApps;
             }
